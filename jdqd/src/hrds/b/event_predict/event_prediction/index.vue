@@ -1,5 +1,5 @@
 <template>
-<div class="app-container">
+<div class="app-container innerpadd">
     <!-- <el-dialog title="预测" :visible.sync="predictDialogVisible" width="60%">
         <el-button type="warning" @click="forecastBtn()" :loading="loadingbut" style="margin-top:20px;margin-left:25px">事件预测</el-button>
     </el-dialog> -->
@@ -31,11 +31,10 @@
     <!-- </div>
     </el-dialog> -->
     <el-row class="elRows">
-        <span>事件预测</span>
+        <span></span>
         <el-button type="primary" size="mini" class="el1 els" @click="created()"><i class="block_icon fa fa-plus-circle"></i>新建事件预测</el-button>
         <el-button type="success" size="mini" class="el1 els" @click="changePage()"><i class="block_icon fa el-icon-search"></i>线索识别</el-button>
     </el-row>
-    <div class="lines"></div>
     <el-table :data="tableData" :height="tableHeight" :default-sort="{ prop: 'para_id', order: 'ascending' }" border>
         <el-table-column label="序号" type="index" width="60" align="center" />
         <el-table-column label="模型名称" prop="name" show-overflow-tooltip>

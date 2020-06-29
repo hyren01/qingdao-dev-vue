@@ -18,13 +18,13 @@
         </el-table-column>
       </el-table>
     </el-dialog>
-    <el-col :span="7" style="float:left;margin-top:-2%;margin-left:18%">
+    <!-- <el-col :span="7">
       <el-date-picker v-model="findData" type="date" placeholder="选择日期" size="mini" value-format="yyyy-MM-dd">
       </el-date-picker>
       <el-button type="primary" @click="handleFind" size="mini" style="float:right;">
       搜索
       </el-button>
-    </el-col>
+    </el-col> -->
     <el-table
       :data="tableData"
       style=" width: 100%;margin-top:60px"
@@ -208,5 +208,8 @@ export default {
   color: #409eff;
   border-color: #c6e2ff;
   background-color: #ecf5ff;
+}
+.el-pagination{
+    margin:14px 0;
 }
 </style>

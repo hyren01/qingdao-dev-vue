@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="app-container innerpadd">
     <el-button size="small"
                type="primary"
                @click="back">返回</el-button>

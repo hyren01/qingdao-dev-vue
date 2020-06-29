@@ -1,7 +1,7 @@
 <template>
-<div id="dashboard">
+<div id="dashboard1">
     <el-row class="elRow">
-        <div class="imgDiv22">
+        <div class="dashboardImgDiv">
             <el-col :span="4" :offset="1">
                 <div class="elcol6">
                     <img src="./index/sao.png" alt="sao" />
@@ -31,24 +31,9 @@
 </div>
 </template>
 
-<script>
-// new Vue({
-//   el: "#app",
-//   data: function() {
-//     return {
-//       link: ""
-//     };
-//   }
-// });
-</script>
-
 <style scoped>
-.el-header {
-    background-color: #15215c !important;
-}
-
 /* 总体样式和背景图 */
-#dashboard {
+#dashboard1 {
     margin: 0;
     padding: 0;
     background: url("./index/index.png") no-repeat;
@@ -62,16 +47,16 @@
 /* 整体垂直居中 */
 .elRow {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 /* 垂直居中 */
-.imgDiv22 {
+.dashboardImgDiv {
     width: 100%;
-    height: 70%;
+    height: 100%;
     text-align: center;
     /* margin-left: 5%; */
 }
@@ -124,9 +109,5 @@
     /* Safari 和 Chrome */
     -o-transform: scale(1.1, 1.1);
     /* Opera */
-}
-</style><style>
-.routerClass {
-    margin-top: 0% !important;
 }
 </style>

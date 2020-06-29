@@ -19,7 +19,7 @@ export default {
     };
   },
   mounted(){
-    
+   
   },
   watch: {},
   created () {

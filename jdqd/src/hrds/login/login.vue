@@ -1,34 +1,23 @@
 <template>
-<!-- <div class="login">
-    <el-form :model="ruleForm" status-icon :rules="rule" ref="ruleForm" class="demo-ruleForm" label-width="80px">
-        <el-form-item label="登录名" prop="user_id" :rules="rule.default">
-            <el-input v-model="ruleForm.user_id"></el-input>
-        </el-form-item>
-        <el-form-item label="密码" prop="password" :rules="rule.default">
-            <el-input type="password" v-model="ruleForm.password" autocomplete="off" show-password></el-input>
-        </el-form-item>
-        <el-form-item>
-            <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
-            <el-button @click="resetForm('ruleForm')">重置</el-button>
-        </el-form-item>
-    </el-form>
-  </div>-->
-<div id="app">
+<div id="app" class = "app">
     <el-row class="elRow">
-        <div class="imgDiv">
-            <p class="title">人物与事件处理系统</p>
-            <el-form :model="ruleForm" status-icon :rules="rule" ref="ruleForm" class="demo-ruleForm">
-                <el-form-item prop="user_id" class="userALL" :rules="rule.default">
-                    <img src="./login/admin.png" alt="uesrs" class="users" />
-                    <el-input v-model="ruleForm.user_id" placeholder="请输入账号"></el-input>
-                </el-form-item>
-                <el-form-item prop="password" class="userALL" :rules="rule.default">
-                    <i class="el-icon-lock users"></i>
-                    <el-input type="password" v-model="ruleForm.password" placeholder="请输入密码" autocomplete="off" show-password></el-input>
-                </el-form-item>
-                <div class="divlogin" @click="submitForm('ruleForm')">登录</div>
-            </el-form>
-        </div>
+        <el-col :span="spanNumber" class="elcol8">
+            <div class="imgDiv">
+                <p :class="titles">人物与事件处理系统</p>
+                <el-form :model="ruleForm" status-icon :rules="rule" ref="ruleForm" :class="ruleFormclass">
+                    <el-form-item prop="user_id" class="userALL" :rules="rule.default">
+                        <img src="./login/admin.png" alt="uesrs" class="users" />
+                        <el-input v-model="ruleForm.user_id" placeholder="请输入账号"></el-input>
+                    </el-form-item>
+                    <el-form-item prop="password" class="userALL" :rules="rule.default">
+                        <i class="el-icon-lock users"></i>
+                        <el-input type="password" v-model="ruleForm.password" placeholder="请输入密码" autocomplete="off" show-password></el-input>
+                    </el-form-item>
+                </el-form>
+                <div :class="divloginBton" @click="submitForm('ruleForm')">登录</div>
+            </div>
+        </el-col>
+
     </el-row>
 </div>
 </template>
@@ -42,6 +31,7 @@ import * as validator from "@/utils/js/validator";
 export default {
     name: "Login",
     mounted() {
+        this.differentScreen();
         // 绑定enter事件
         this.enterKeyup();
         sessionStorage.setItem("flag", "1");
@@ -57,6 +47,10 @@ export default {
                 user_id: "",
                 password: ""
             },
+            spanNumber: 9,
+            titles: 'title',
+            ruleFormclass: 'demo-ruleForm',
+            divloginBton: 'divlogin',
             rule: validator.default,
             formLabelWidth: "60px"
         };
@@ -97,13 +91,21 @@ export default {
         },
         enterKeyup() {
             document.addEventListener("keyup", this.enterKey);
+        },
+        // 兼容分辨率
+        differentScreen() {
+            if (screen.width < 1600) {
+                this.spanNumber = 9;
+                this.titles = 'title1366';
+                this.ruleFormclass = 'demo-ruleForm1366';
+                this.divloginBton = 'divlogin1366';
+            }
         }
     }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-
 <style>
 /* 总体样式和背景图 */
 html,
@@ -120,7 +122,8 @@ body {
     background-size: cover;
     overflow: hidden;
 }
-
+</style>
+<style scoped>
 /* 整体垂直居中 */
 .elRow {
     width: 100vw;
@@ -130,17 +133,21 @@ body {
     align-items: center;
 }
 
-.imgDiv {
-    width: 720px;
-    height: 470px;
+/* 三种css兼容 */
+/* 默认1920 */
+.elcol8 {
     background: url("./login/loginInput.png") no-repeat;
     background-position: center;
     background-size: 100% 100%;
 }
 
+.imgDiv {
+    width: 100%;
+}
+
 /* 人物标题样式 */
 .title {
-    margin-top: 70px;
+    margin: 60px 0 30px 0;
     font-size: 34px;
     line-height: 34px;
     color: #ffffff;
@@ -149,14 +156,14 @@ body {
 
 /* form表单样式 */
 .demo-ruleForm {
-    width: 60.2%;
+    width: 64.2%;
     margin: 0 auto;
     text-align: center;
-    margin-top: 7%;
+    margin-bottom: 30px;
 }
 
 /* input框 */
-.el-input__inner {
+.app >>>.el-input__inner {
     background-color: transparent !important;
     border: 1px solid #03456b !important;
     color: #ffffff !important;
@@ -181,15 +188,50 @@ body {
 
 /* 登录按钮样式 */
 .divlogin {
-    width: 100%;
-    height: 50px;
-    line-height: 50px;
+    width: 64.2%;
+    margin: 0 auto;
+    height: 44px;
+    line-height: 44px;
     font-size: 24px;
     background: #00b4ff;
     color: #ffffff;
     text-align: center;
     cursor: pointer;
     border-radius: 4px;
-    margin-top: 9%;
+    margin-top: 10px;
+    margin-bottom: 100px;
+}
+
+/* 分辨率1366及以下 */
+/* 人物标题样式 */
+.title1366 {
+    margin: 40px 0 20px 0;
+    font-size: 24px;
+    line-height: 24px;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* form表单样式 */
+.demo-ruleForm1366 {
+    width: 64.2%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 登录按钮样式 */
+.divlogin1366 {
+    width: 64.2%;
+    margin: 0 auto;
+    height: 36px;
+    line-height: 36px;
+    font-size: 16px;
+    background: #00b4ff;
+    color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 60px;
 }
 </style>

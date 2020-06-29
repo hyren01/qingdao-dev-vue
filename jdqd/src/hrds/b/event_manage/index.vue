@@ -1,12 +1,11 @@
 <template>
-<div class="loindex">
+<div class="loindex innerpadd">
     <el-row class="elRows">
-        <span>事件管理</span>
+        <span></span>
         <el-button type="primary" class="el1 els" @click="addWord" size="mini">
             <i class="block_icon fa fa-plus-circle"></i>新增同义词
         </el-button>
     </el-row>
-    <div class="lines"></div>
     <div>
         <el-table size="medium" :data="tableData.slice((this.currpage - 1) * this.pagesize,
           this.currpage * this.pagesize)" border stripe style="width: 100%" :height="tableHeight">
@@ -251,9 +250,7 @@ export default {
 }
 
 .elRows {
-    height: 40px;
-    line-height: 40px;
-    width: 100%;
+     margin: 0 0 10px 0;
 }
 
 .el-row span {

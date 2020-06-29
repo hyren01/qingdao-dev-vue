@@ -1,6 +1,6 @@
 
 <template>
-  <div class="echartLayout" id="container3">
+  <div class="echartLayout " id="container3">
     <el-row>
       <el-col :span="7" style="margin-top: 20px;margin-bottom:20px;margin-left:20px">
         <el-input

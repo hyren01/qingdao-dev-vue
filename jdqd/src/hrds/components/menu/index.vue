@@ -4,7 +4,7 @@
         <el-aside :class="isCollapse==true?'aside1':'aside2'" style="position: fixed;left: 0;top: 0;">
             <happy-scroll color="rgba(204, 200, 200, 0.6)" size="5" resize>
                 <!-- 导航 -->
-                <el-menu :unique-opened='true' style="border:0" background-color="#495179" text-color="#fff" active-text-color="rgba(255, 208, 75, 0.8)" router :default-active="$route.path" :collapse-transition="true" :collapse="isCollapse" class="el-menu-vertical-demo">
+                <el-menu :unique-opened='true' style="border:0" background-color="#495179" text-color="#fff" active-text-color="rgba(255, 208, 75, 0.8)" @select="handleSelect" :collapse-transition="true" :collapse="isCollapse" class="el-menu-vertical-demo">
                     <div v-for="items in menus" :key="items.name">
                         <template v-if="items.children">
                             <!--二级菜单循环-->
@@ -28,26 +28,41 @@
             </happy-scroll>
         </el-aside>
         <el-container :class="isCollapse==true?'asidewidth1':'asidewidth2'">
-            <el-header :class="isCollapse==true?'header2':'header1'">
-                <el-row>
-                    <el-col :span="18" style='text-align:left;line-height: 45px;'>
-                        <span @click="meanClickFun()" style="cursor: pointer;color:#409EFF"><i :class="isCollapse==true?'el-icon-s-unfold':'el-icon-s-fold'" style="font-size:22px;margin-right:12px;"></i></span>
-                        <el-breadcrumb separator="/" style="display: inline-block;color:#409EFF;">
-                            <el-breadcrumb-item v-for="(item, index) in $route.meta" :key="index">
-                                <router-link v-if="item.url" :to="item.url">{{item.name}}</router-link>
-                                <a v-else>
-                                    {{item.name}}
-                                </a>
-                            </el-breadcrumb-item>
-                        </el-breadcrumb>
-                    </el-col>
-                    <el-col :span="6" style='text-align: right;position: fixed;right: 20px;top: -2px;'>
-                        <el-link :underline="false" @click="goback"><i class="el-icon-s-custom" style="color:#409EFF;font-size:16px">&nbsp;&nbsp;退出登录</i></el-link>
-                    </el-col>
-                </el-row>
+            <el-header v-if="routerName == '/dashboard'" style="cursor: pointer;background-color: #15215c" :class="isCollapse==true?'header2':'header1'">
+                <el-col :span="18" style='text-align:left;line-height: 45px;'>
+                    <span @click="meanClickFun()" style="color:#409EFF"><i :class="isCollapse==true?'el-icon-s-unfold':'el-icon-s-fold'" style="font-size:22px;margin-right:12px;"></i></span>
+                    <el-breadcrumb separator="/" style="display: inline-block;color:#409EFF;">
+                        <el-breadcrumb-item v-for="(item, index) in $route.meta" :key="index">
+                            <router-link v-if="item.url" :to="item.url">{{item.name}}</router-link>
+                            <a v-else>
+                                {{item.name}}
+                            </a>
+                        </el-breadcrumb-item>
+                    </el-breadcrumb>
+                </el-col>
+                <el-col :span="6" style='text-align: right;position: fixed;right: 20px;top: -2px;'>
+                    <el-link :underline="false" @click="goback"><i class="el-icon-s-custom" style="color:#409EFF;font-size:16px">&nbsp;&nbsp;退出登录</i></el-link>
+                </el-col>
             </el-header>
-            <el-main>
-                <router-view></router-view>
+            <el-header v-else style="background-color:#fff" :class="isCollapse==true?'header2':'header1'">
+                <el-col :span="18" style='text-align:left;line-height: 45px;'>
+                    <span @click="meanClickFun()" style="cursor: pointer;color:#409EFF"><i :class="isCollapse==true?'el-icon-s-unfold':'el-icon-s-fold'" style="font-size:22px;margin-right:12px;"></i></span>
+                    <el-breadcrumb separator="/" style="display: inline-block;color:#409EFF;">
+                        <el-breadcrumb-item v-for="(item, index) in $route.meta" :key="index">
+                            <router-link v-if="item.url" :to="item.url">{{item.name}}</router-link>
+                            <a v-else>
+                                {{item.name}}
+                            </a>
+                        </el-breadcrumb-item>
+                    </el-breadcrumb>
+                </el-col>
+                <el-col :span="6" style='text-align: right;position: fixed;right: 20px;top: -2px;'>
+                    <el-link :underline="false" @click="goback"><i class="el-icon-s-custom" style="color:#409EFF;font-size:16px">&nbsp;&nbsp;退出登录</i></el-link>
+                </el-col>
+            </el-header>
+            <!-- <div style='height:45px;clear:both;'></div> -->
+            <el-main style="margin-top:45px">
+                <router-view class="routerView"></router-view>
             </el-main>
         </el-container>
     </el-container>
@@ -70,10 +85,12 @@ export default {
         return {
             menus: [],
             deflink: '',
-            isCollapse: false,
+            isCollapse: true,
+            routerName: ''
         }
     },
     mounted() {
+        this.routerName = this.$route.path;
         // 这里是菜单默认路径
         // this.$router.push('syspara');
         addTaskAllFun.getMenu().then(res => {
@@ -120,12 +137,23 @@ export default {
                 }
             }
         },
+        //导航栏路由跳转
+        handleSelect(key, keyPath, title) {
+            this.routerName = key
+            this.$router.push({
+                path: key
+            });
+        }
 
     }
 }
 </script>
 
 <style scoped>
+.happy-scroll-container {
+    height: 100% !important;
+}
+
 .aside2 {
     background-color: #15215c;
     min-height: 89.1vh;
@@ -137,11 +165,13 @@ export default {
 .aside1 {
     background-color: #15215c;
     min-height: 89.1vh;
-    width: 55px !important;
+    width: 64px !important;
     transition: 0.5s;
     height: 100%;
 }
-
+.routerView{
+    margin-top:10px;
+}
 .asidewidth2 {
     margin-left: 200px;
     transition: 0.5s;
@@ -153,12 +183,12 @@ export default {
 }
 
 .asideW2 {
-    width: 55px;
+    width: 84px;
     transition: 0.2s;
 }
 
 .asidewidth1 {
-    margin-left: 55px;
+    margin-left: 64px;
     transition: 0.5s;
 }
 
@@ -170,8 +200,10 @@ export default {
 }
 
 .header2 {
+    margin-top: 0;
+    margin-left: 0;
     position: fixed !important;
-    left: 55px !important;
+    left: 64px !important;
     top: 0 !important;
     transition: 0.5s;
 }
@@ -182,14 +214,13 @@ export default {
 }
 
 .el-header {
-    background-color: #fff;
     text-align: center;
     color: #000;
     /* position: fixed; */
-    top: 0%;
+    /* top: 0%; */
     width: 100%;
     z-index: 10;
-    left: 0;
+    /* left: 0; */
     height: 45px !important;
     line-height: 45px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .12), 0 0 6px 0 rgba(0, 0, 0, .04);
@@ -199,11 +230,17 @@ export default {
 
 .el-main {
     padding: 0px 0px;
-    margin-top: 4% !important;
+    /* margin-top: 4% !important; */
+    height: 92.2vh;
+    background: #fff;
 }
 
 .el-container {
-    min-height: 93vh;
+    height: 100vh;
+}
+
+.home>>>.happy-scroll-container {
+    overflow: visible;
 }
 
 .el-footer {

@@ -1,6 +1,6 @@
 <template>
 <div class="loindex">
-    <div class="left">
+    <div class="center">
         <el-button @click="cancel" size="small" type="primary" style="float:right;">
             返回
         </el-button>

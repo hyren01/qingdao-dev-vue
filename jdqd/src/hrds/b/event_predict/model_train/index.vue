@@ -1,12 +1,11 @@
 <template>
-<div class="loindex">
+<div class="loindex innerpadd" >
     <el-row class="elRows">
-        <span>模型训练</span>
+        <span></span>
         <el-button type="primary" class="el1 els" @click="handleCreate()" size="mini">
             <i class="block_icon fa fa-plus-circle"></i>创建模型
         </el-button>
     </el-row>
-    <div class="lines"></div>
     <el-table :data="tableData" size="medium" border stripe style="width: 100%" :height="tableHeight">
         <el-table-column type="index" label="序号" width="70px" align='center'></el-table-column>
         <el-table-column label="模型名称" prop="translated_title" show-overflow-tooltip align='left'>
@@ -189,7 +188,7 @@ export default {
 
 .els {
     float: right;
-    margin-top: 3px;
+    margin-top: 6px;
 }
 
 .elRows {

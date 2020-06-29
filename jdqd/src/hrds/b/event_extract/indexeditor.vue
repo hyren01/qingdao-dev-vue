@@ -1,12 +1,11 @@
 <template>
 <div class="app-container">
     <el-row class="elRows">
-        <span>事件提取</span>
+        <span></span>
         <el-button type="primary" class="el1 els" @click="handleClone" size="mini">
             <i class="block_icon fa fa-plus-circle"></i>数据备份
         </el-button>
     </el-row>
-    <div class="lines"></div>
     <div>
         <el-table :data="tableData" :default-sort="{ prop: 'para_id', order: 'ascending' }" border stripe style="width: 100%" :height="tableHeight">
             <el-table-column label="序号" type="index" width="70px" align="center"/>
@@ -110,9 +109,7 @@ export default {
 }
 
 .elRows {
-    height: 40px;
-    line-height: 40px;
-    width: 100%;
+    margin:10px 0;
 }
 
 .el-row span {

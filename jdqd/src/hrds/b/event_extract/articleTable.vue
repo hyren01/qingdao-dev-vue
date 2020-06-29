@@ -1,15 +1,15 @@
 <template>
-  <div class="loindex">
-    <el-col :span="6" style="float:left;margin-top:-2%;margin-left:18%">
+  <div class="loindex innerpadd">
+    <!-- <el-col :span="6">
       <el-input size="mini" placeholder="请输入表单标题" v-model="findData" prefix-icon="el-icon-search">
         <el-button size="mini" slot="append" @click="handleSearch">搜索</el-button>
       </el-input>
     </el-col>
-    <el-button type="primary" style="float:right;margin-top:-2%" size="mini" @click="handleInput">数据导入</el-button>
+    <el-button type="primary" size="mini" @click="handleInput">数据导入</el-button> -->
     <el-table
       :data="tableData"
       :height="tableHeight"
-      style=" width: 100%;margin-top:70px"
+      style=" width: 100%;margin-top:30px"
       :default-sort="{ prop: 'para_id', order: 'ascending' }"
       size="medium" border stripe 
     >
@@ -177,5 +177,8 @@ export default {
   color: #409eff;
   border-color: #c6e2ff;
   background-color: #ecf5ff;
+}
+.el-pagination{
+    margin:14px 0;
 }
 </style>

@@ -1,8 +1,14 @@
 /* ------------------------------------- button ------------------------------------------------------ */
 
+
 /* 按钮设置样式的class名称,需要给button设置class="elButton"实现更改样式*/
+
+
 /*按钮大小设置需在el-button标签设置size属性实现*/
+
+
 /*删除 确定 取消 可以通过设置button的type属性实现*/
+
 .elButton {}
 
 .el-button--primary {
@@ -67,7 +73,9 @@
     border-color: #d9ecff
 }
 
+
 /*success  */
+
 .el-button--success {
     color: #FFF;
     background-color: #67C23A;
@@ -130,7 +138,9 @@
     border-color: #e1f3d8
 }
 
+
 /* warning */
+
 .el-button--warning {
     color: #FFF;
     background-color: #E6A23C;
@@ -193,7 +203,9 @@
     border-color: #faecd8
 }
 
+
 /* danger */
+
 .el-button--danger {
     color: #FFF;
     background-color: #F56C6C;
@@ -256,7 +268,9 @@
     border-color: #fde2e2
 }
 
+
 /* info */
+
 .el-button--info {
     color: #FFF;
     background-color: #909399;
@@ -319,32 +333,43 @@
     border-color: #e9e9eb
 }
 
+
 /* ------------------------------------- table ------------------------------------------------------ */
 
+
 /* 表格表头样式,不需要添加属性即可更改，如有特别样式请自行设置class名谢谢 */
+
 .el-table th {
-    background-color: #3d8dd2 !important;
-    color: #fff;
+    background-color: #F2F2F2 !important;
+    color: #909399;
     height: 20px !important;
     line-height: 20px !important;
 }
 
+
 /* 斑马纹样式，需要在table里面写stripe属性然后在这里实现样式的更改 */
+
 .el-table--striped .el-table__body tr.el-table__row--striped td {
     background-color: rgb(252, 249, 249) !important;
 }
 
+
 /* 表格td样式，不需要添加属性即可更改 */
+
 .el-table--enable-row-transition .el-table__body td {
     /*   background-color: cyan; */
 }
 
+
 /* 其他表格鼠标划入时的颜色，不需要添加属性即可更改 */
+
 .el-table--enable-row-hover .el-table__body tr:hover>td {
     /* background-color:#7ba6cf86 !important; */
 }
 
+
 /* 默认表格鼠标划入时的颜色，不需要添加属性即可更改 */
+
 .el-table__body tr.hover-row.current-row>td,
 .el-table__body tr.hover-row.el-table__row--striped.current-row>td,
 .el-table__body tr.hover-row.el-table__row--striped>td,
@@ -352,41 +377,66 @@
     /* background-color:#7ba6cf86 !important; */
 }
 
+
 /* ------------------------------------- radio ------------------------------------------------------- */
 
+
 /*单选框默认样式设置，不需要添加属性，可以直接更改*/
+
 .el-radio__inner {}
 
+
 /*单选框默认字体样式设置，不需要添加属性，可以直接更改*/
+
 .el-radio__label {}
 
+
 /*单选框选中样式设置，不需要添加属性，可以直接更改*/
+
 .el-radio__input.is-checked .el-radio__inner {}
 
+
 /*单选框选中字体样式设置，不需要添加属性，可以直接更改*/
+
 .el-radio__input.is-checked+.el-radio__label {}
 
+
 /* 如果需要只设置单独的某一个radio，需要在el-radio添加id="manuallyChange"实现 */
+
+
 /*单选框样式设置*/
+
 #manuallyChange .el-radio__inner {}
 
+
 /*单选框字体样式设置，*/
+
 #manuallyChange .el-radio__label {}
 
+
 /*单选框选中样式设置*/
+
 #manuallyChange .el-radio__input.is-checked .el-radio__inner {
     /* border-color:rgb(83, 168, 33);
     background: rgb(83, 168, 33); */
 }
 
+
 /*单选框选中字体样式设置*/
+
 #manuallyChange .el-radio__input.is-checked+.el-radio__label {
     /* color: rgb(83, 168, 33); */
 }
 
+
 /* ------------------------------------- message ------------------------------------------------------- */
+
+
 /* 在更改样式之前，需要在methods的方法this.$confirm里添加cancelButtonClass或者confirmButtonClass */
+
+
 /*message取消按钮的默认样式*/
+
 .btn-cancel {
     background-color: #F56C6C;
     color: #FFFFFF;
@@ -399,152 +449,231 @@
     border: 1px solid #F56C6C;
 }
 
+
 /*message确认按钮的默认样式*/
+
 .btn-confirm {}
+
 
 /* */
 
 
 /* ------------------------------------- input ------------------------------------------------------- */
 
+
 /*input表单验证提示信息样式，不需要添加属性，可以直接更改*/
+
 .el-form-item__error {}
 
+
 /*input表单验证提示信息样式边框，不需要添加属性，可以直接更改*/
+
 .el-form-item.is-error .el-input__inner,
 .el-form-item.is-error .el-textarea__inner {
     /* border-color: blue; */
 }
+
+
 /* 被禁用时候的样式更改 */
+
 .el-input.is-disabled .el-input__inner {
     /* background-color: blue;
     border-color: #E4E7ED;
     color: #C0C4CC;
     cursor: not-allowed; */
 }
+
+
 /* ------------------------------------- checkbox ------------------------------------------------------- */
 
+
 /*复选框默认样式设置，不需要添加属性，可以直接更改*/
+
 .el-checkbox__inner {}
 
+
 /*复选框默认字体样式设置，不需要添加属性，可以直接更改*/
+
 .el-checkbox__label {}
 
+
 /*复选框默认选中样式设置，不需要添加属性，可以直接更改*/
+
 .el-checkbox__input.is-checked .el-checkbox__inner {}
 
+
 /*复选框字体默认选中样式设置，不需要添加属性，可以直接更改*/
+
 .el-checkbox__input.is-checked+.el-checkbox__label {}
 
+
 /* 如果需要只设置单独的某一个复选框，需要在el-checkbox添加id="manuallyChangeck"实现 */
+
+
 /*复选框样式设置*/
+
 #manuallyChangeck .el-checkbox__inner {}
 
+
 /*复选框字体样式设置*/
+
 #manuallyChangeck .el-checkbox__label {}
 
+
 /*复选框选中样式设置*/
+
 #manuallyChangeck .el-checkbox__input.is-checked .el-checkbox__inner {}
 
+
 /*复选框选中字体设置*/
+
 #manuallyChangeck .el-checkbox__input.is-checked+.el-checkbox__label {}
 
+
 /* ------------------------------------- tab选项卡 ------------------------------------------------------- */
+
+
 /*选项卡的默认样式*/
+
 .el-tabs__nav-scroll {
     background: #95b6f330;
 }
 
+
 /*选项卡的选中默认样式*/
+
 .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active {
     /* background-color: chartreuse;
     color: coral; */
 }
+
+
 /*表头筛选 */
-.el-table th>.cell.highlight{
+
+.el-table th>.cell.highlight {
     color: #91c9f1 !important;
 }
-.el-table__column-filter-trigger i{
+
+.el-table__column-filter-trigger i {
     color: #fff !important;
 }
+
+
 /* loaging过度动画*/
+
 .fade-enter,
 .fade-leave-active {
-  opacity: 0;
+    opacity: 0;
 }
+
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s;
+    transition: opacity 0.5s;
 }
+
+
 /*编辑文本按钮颜色*/
-.editcolor{
+
+.editcolor {
     color: #409eff !important;
 }
+
+
 /*删除文本按钮颜色 */
+
 .delcolor {
     color: #F56C6C !important;
 }
+
+
 /* 发送文本按钮颜色 */
+
 .sendcolor {
     color: #67c23a !important;
 }
+
+
 /* 发布文本按钮颜色 */
-.issuecolor{
-   color:#67c23a !important;
+
+.issuecolor {
+    color: #67c23a !important;
 }
+
+
 /* 生成作业 */
+
 .workcolor {
     color: #8c8b8b !important
 }
+
+
 /*内容区顶部标题以及右侧按钮返回样式--start */
-.topTitle{
+
+.topTitle {
     border-bottom: 1px solid #e6e3e3;
     margin-bottom: 10px;
     width: 100%;
     height: 40px;
     line-height: 40px;
 }
+
 .topTitle>span {
     color: #2196f3;
     font-size: 18px;
 }
+
 .fa-home {
     margin-right: 5px;
 }
+
 .goIndex {
     float: right;
     background: #337ab7;
 }
+
+
 /* 内容区顶部标题以及右侧按钮返回样式--end */
-.dialogtitle{
+
+.dialogtitle {
     font-size: 16px;
     color: #409EFF;
     font-weight: 600;
     margin-right: 10px;
 }
-.dialogtoptxt{
+
+.dialogtoptxt {
     font-size: 16px;
     color: #656262;
     margin-left: 5px;
 }
+
 .dialogtopname {
     display: inline-block;
     background: #f3eded;
     color: #ec0b35;
     padding: 2px;
 }
+
+
 /*弹框内居右对齐翻页  */
+
 .locationright {
     text-align: right;
     margin-top: 5px;
 }
+
 .el-dialog__body {
     padding: 15px 20px !important;
 }
-.el-dialog__header{
+
+.el-dialog__header {
     border-bottom: 1px solid #f1eaea;
 }
+
+
 /* select 多选溢出样式 */
+
+
 /* .el-tag.el-tag--info{
     max-width: 88%;
 }
@@ -556,15 +685,28 @@
 .el-select .el-tag__close.el-icon-close{
     right: -1px !important;
 } */
+
+
 /* 翻页条居中 */
+
 .locationcenter {
     text-align: center;
     margin-top: 5px;
 }
-pre{
-    white-space: pre-wrap; /*css-3*/ 
-white-space: -moz-pre-wrap; /*Mozilla,since1999*/ 
-white-space: -pre-wrap; /*Opera4-6*/ 
-white-space: -o-pre-wrap; /*Opera7*/ 
-word-wrap: break-word; /*InternetExplorer5.5+*/ 
+
+pre {
+    white-space: pre-wrap;
+    /*css-3*/
+    white-space: -moz-pre-wrap;
+    /*Mozilla,since1999*/
+    white-space: -pre-wrap;
+    /*Opera4-6*/
+    white-space: -o-pre-wrap;
+    /*Opera7*/
+    word-wrap: break-word;
+    /*InternetExplorer5.5+*/
+}
+
+.innerpadd {
+    padding: 2px 10px;
 }
