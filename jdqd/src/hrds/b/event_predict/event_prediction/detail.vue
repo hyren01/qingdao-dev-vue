@@ -1,8 +1,7 @@
 <template>
 <div class="app-container">
-
     <el-row class="elRows">
-        <span>详情</span>
+        <span></span>
         <el-button @click="cancel" size="mini" class="el1 els" type="primary">
             返回
         </el-button>
@@ -17,11 +16,12 @@
         </div>
     </el-row>
     <h4 class="handletitle">预测结果</h4>
-    <div style="margin-top:20px">
-        <div class="detailchart">
+    <div class="detailchart">
+        <el-row>
             <!-- <chartline :chartdata="chartdata" /> -->
             <VeLine :data="chartdata" :extend="chartExtend" :settings="chartSettings" />
-        </div>
+        </el-row>
+
         <div class="detailbutton">
             <el-button size="small" type="primary" @click="handleClick">
                 查看详情
@@ -148,7 +148,6 @@ export default {
     font-family: Microsoft YaHei !important;
 }
 </style><style scoped>
-
 .handletitle {
     margin-top: 10px;
     margin-bottom: 20px;
@@ -176,13 +175,14 @@ export default {
 .detailchart {
     /* border: 1px solid red; */
     position: relative;
+    margin-top: 20px;
 }
 
 .detailbutton {
     /* border: 1px solid red; */
     position: absolute;
-    margin-top: -400px;
-    margin-left: 78vw;
+    top: 0%;
+    right: 0%;
 }
 
 .infoDeatil {

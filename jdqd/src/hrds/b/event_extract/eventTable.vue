@@ -4,7 +4,7 @@
       <el-table
         :data="tableData2"
         style="width:100%;"
-        size="medium" border stripe 
+        size="medium" border  
         :height="tableHeight"
       >
         <el-table-column prop="translated_title" label="文章标题" align="center">
@@ -30,7 +30,7 @@
       style=" width: 100%;margin-top:60px"
       :height="tableHeight"
       :default-sort="{ prop: 'para_id', order: 'ascending' }"
-      size="medium" border stripe 
+      size="medium" border  
     >
       <el-table-column label="序号" type="index" width="70px" align="center" />
       <el-table-column label="相关事件" prop="title" show-overflow-tooltip align='center'>

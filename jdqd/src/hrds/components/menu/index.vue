@@ -4,15 +4,15 @@
         <el-aside :class="isCollapse==true?'aside1':'aside2'" style="position: fixed;left: 0;top: 0;">
             <happy-scroll color="rgba(204, 200, 200, 0.6)" size="5" resize>
                 <!-- 导航 -->
-                <el-menu :unique-opened='true' style="border:0" background-color="#495179" text-color="#fff" active-text-color="rgba(255, 208, 75, 0.8)" @select="handleSelect" :collapse-transition="true" :collapse="isCollapse" class="el-menu-vertical-demo">
+                <el-menu :unique-opened='true' style="border:0" background-color="#15215c" text-color="#fff" active-text-color="#009dd7" @select="handleSelect" :collapse-transition="true" :collapse="isCollapse" class="el-menu-vertical-demo">
                     <div v-for="items in menus" :key="items.name">
                         <template v-if="items.children">
                             <!--二级菜单循环-->
                             <el-submenu :index="items.children[0].path" class='oneMenu'>
                                 <template slot="title"><i :class="items.icon"></i><span slot="title" class='displayno' v-if="isCollapse==false">{{items.title}}</span></template>
                                 <el-menu-item v-for="item in items.children" :key="item.name" :index="item.path">
-                                    <i :class="item.icon"></i>
-                                    <span>{{item.title}}</span>
+                                    <i :class="item.icon" class='displayno'></i>
+                                    <span class='displayno'>{{item.title}}</span>
                                 </el-menu-item>
                             </el-submenu>
                         </template>
@@ -156,7 +156,7 @@ export default {
 
 .aside2 {
     background-color: #15215c;
-    min-height: 89.1vh;
+    /* min-height: 89.1vh; */
     width: 200px !important;
     transition: 0.5s;
     height: 100%;
@@ -164,14 +164,18 @@ export default {
 
 .aside1 {
     background-color: #15215c;
-    min-height: 89.1vh;
-    width: 64px !important;
+    /* min-height: 89.1vh; */
+    width: 50px !important;
     transition: 0.5s;
     height: 100%;
 }
-.routerView{
-    margin-top:10px;
+
+.routerView {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
 }
+
 .asidewidth2 {
     margin-left: 200px;
     transition: 0.5s;
@@ -183,12 +187,12 @@ export default {
 }
 
 .asideW2 {
-    width: 84px;
+    width: 50px;
     transition: 0.2s;
 }
 
 .asidewidth1 {
-    margin-left: 64px;
+    margin-left: 50px;
     transition: 0.5s;
 }
 
@@ -203,7 +207,7 @@ export default {
     margin-top: 0;
     margin-left: 0;
     position: fixed !important;
-    left: 64px !important;
+    left: 50px !important;
     top: 0 !important;
     transition: 0.5s;
 }
@@ -258,5 +262,20 @@ export default {
 
 li {
     background-color: #15215c !important;
+}
+
+.home>>>.el-menu--collapse>div>.el-menu-item .el-submenu__icon-arrow,
+.home>>>.el-menu--collapse>div>.el-submenu>.el-submenu__title .el-submenu__icon-arrow {
+    display: none;
+}
+
+.home>>>.el-menu--collapse {
+    width: 50px;
+}
+
+.home>>>.el-tooltip,
+.home>>>.el-submenu__title,
+.home>>>.el-menu>div>.el-menu-item {
+    padding: 0 10px !important;
 }
 </style>

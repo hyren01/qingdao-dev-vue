@@ -297,7 +297,7 @@ export default {
         } else {
           var datalist = new Array(json.length);
           for (var i = 0; i < json.length; i++) {
-            if (i == 0) {
+            if (json[i].id == this.event_id) {
               var nodeObj = new Object();
               nodeObj.name = this.event_sentence;
               nodeObj.name = this.formatStr(nodeObj.name);
@@ -446,7 +446,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .wrapper {
   padding: 10px 0;
   border: 1px solid rgba(80, 80, 80, 0.4);

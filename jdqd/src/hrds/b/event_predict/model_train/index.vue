@@ -6,7 +6,7 @@
             <i class="block_icon fa fa-plus-circle"></i>创建模型
         </el-button>
     </el-row>
-    <el-table :data="tableData" size="medium" border stripe style="width: 100%" :height="tableHeight">
+    <el-table :data="tableData" size="medium" border  style="width: 100%" :height="tableHeight">
         <el-table-column type="index" label="序号" width="70px" align='center'></el-table-column>
         <el-table-column label="模型名称" prop="translated_title" show-overflow-tooltip align='left'>
             <template slot-scope="{ row }">
@@ -289,6 +289,9 @@ export default {
 
 .loindex .span2 {
     font-size: 12px;
+}
+.el-pagination{
+    margin:14px 0;
 }
 </style>
 <style>

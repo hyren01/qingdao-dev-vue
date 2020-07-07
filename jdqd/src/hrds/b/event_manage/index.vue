@@ -8,7 +8,7 @@
     </el-row>
     <div>
         <el-table size="medium" :data="tableData.slice((this.currpage - 1) * this.pagesize,
-          this.currpage * this.pagesize)" border stripe style="width: 100%" :height="tableHeight">
+          this.currpage * this.pagesize)" border  style="width: 100%" :height="tableHeight">
             <el-table-column type="index" label="序号" width="70px" align='center'></el-table-column>
             <el-table-column label="主语" prop="translated_title" show-overflow-tooltip align='center'>
                 <template slot-scope="{ row }">

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-table :data="eventInfo" size="medium" border stripe style="width: 100%" :default-sort="{ prop: 'para_id', order: 'ascending' }">
+    <el-table :data="eventInfo" size="medium" border  style="width: 100%" :default-sort="{ prop: 'para_id', order: 'ascending' }">
       <el-table-column type="index"
                        align="center"
                        label="序号"

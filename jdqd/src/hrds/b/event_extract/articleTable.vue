@@ -11,10 +11,10 @@
       :height="tableHeight"
       style=" width: 100%;margin-top:30px"
       :default-sort="{ prop: 'para_id', order: 'ascending' }"
-      size="medium" border stripe 
+      size="medium" border  
     >
       <el-table-column label="序号" type="index" width="70px" align="center" />
-      <el-table-column label="标题" prop="translated_title" show-overflow-tooltip align='center'>
+      <el-table-column label="标题" prop="translated_title" show-overflow-tooltip align='left'>
           <template slot-scope="{ row }">
               <span class="biaoti">{{ row.translated_title }}</span>
               <br />

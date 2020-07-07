@@ -34,7 +34,7 @@
                             </el-form-item>
                         </el-col>
                     </el-row>
-                    <el-table :data="tableData" size="medium" border stripe style="width: 100%" :default-sort="{ prop: 'para_id', order: 'ascending' }">
+                    <el-table :data="tableData" size="medium" border  style="width: 100%" :default-sort="{ prop: 'para_id', order: 'ascending' }">
                         <el-table-column label="步长">
                             <span>{{ this.form.size }} </span>
                         </el-table-column>
@@ -186,7 +186,6 @@ export default {
 }
 </style><style scoped>
 .left {
-    width: 95%;
     position: relative;
     margin-top: 20px;
     height: 80%;

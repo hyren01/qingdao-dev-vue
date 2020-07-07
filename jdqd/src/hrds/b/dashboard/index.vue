@@ -2,25 +2,25 @@
 <div id="dashboard1">
     <el-row class="elRow">
         <div class="dashboardImgDiv">
-            <el-col :span="4" :offset="1">
+            <el-col :span="6">
                 <div class="elcol6">
                     <img src="./index/sao.png" alt="sao" />
                     <h2>事件识别</h2>
                 </div>
             </el-col>
-            <el-col :span="4" :offset="1">
+            <el-col :span="6">
                 <div class="elcol6">
                     <img src="./index/yuce.png" alt="yuce" />
                     <h2>事件预测</h2>
                 </div>
             </el-col>
-            <el-col :span="4" :offset="1">
+            <el-col :span="6">
                 <div class="elcol6">
                     <img src="./index/tu.png" alt="tu" />
                     <h2>事理图谱</h2>
                 </div>
             </el-col>
-            <el-col :span="4" :offset="1">
+            <el-col :span="6">
                 <div class="elcol6">
                     <img src="./index/pvp.png" alt="pvp" />
                     <h2>人员共现</h2>
@@ -32,7 +32,7 @@
 </template>
 
 <style scoped>
-/* 总体样式和背景图 */
+/* 总体样式和背景图和整体垂直居中*/
 #dashboard1 {
     margin: 0;
     padding: 0;
@@ -42,23 +42,19 @@
     overflow: hidden;
     width: 100%;
     height: 100%;
-}
-
-/* 整体垂直居中 */
-.elRow {
-    width: 100vw;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* 垂直居中 */
-.dashboardImgDiv {
+/* 高宽自适应 */
+.elRow {
     width: 100%;
-    height: 100%;
+}
+
+/* 水平居中 */
+.dashboardImgDiv {
     text-align: center;
-    /* margin-left: 5%; */
 }
 
 /* 小图部分 */
@@ -70,19 +66,18 @@
     border-radius: 6px;
     border: 1px solid #324a70;
     box-shadow: 6px 6px 6px #061028;
-    margin-top: 35%
 }
 
 /* 引入图片设置 */
 .elcol6 img {
     width: 60px;
     height: 60px;
-    margin-top: 88px;
+    margin-top: 62px;
 }
 
 /* 标题信息 */
 .elcol6 h2 {
-    margin-top: 64px;
+    margin-top: 44px;
     color: #009dd7;
 }
 

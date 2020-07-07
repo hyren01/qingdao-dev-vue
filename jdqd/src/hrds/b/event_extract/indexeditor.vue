@@ -7,7 +7,7 @@
         </el-button>
     </el-row>
     <div>
-        <el-table :data="tableData" :default-sort="{ prop: 'para_id', order: 'ascending' }" border stripe style="width: 100%" :height="tableHeight">
+        <el-table :data="tableData" :default-sort="{ prop: 'para_id', order: 'ascending' }" border  style="width: 100%" :height="tableHeight">
             <el-table-column label="序号" type="index" width="70px" align="center"/>
             <el-table-column label="备份时间" prop="bak_date" align='center'>
                 <template slot-scope="{ row }">
