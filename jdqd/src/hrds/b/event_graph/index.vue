@@ -30,10 +30,10 @@
                     <el-tooltip effect="dark" :content="item.translated_title" placement="top">
                         <h3 class="infoALLp1" @click="getArticleInfo(item)">{{item.translated_title}}</h3>
                     </el-tooltip>
-                    <p>2010-10-24 <span>新浪财经</span></p>
+                    <p>{{item.spider_time}} <span>{{item.source}}</span></p>
                 </div>
                 <div class="inContent" style="height:42px;">
-                    <span>在特朗普发动政治战争的同时，亚洲也出现了危险的冲突在特朗普发动政治战争的同时，亚洲也出现了危险的冲突在特朗普发动政治战争的同时，亚洲也出现了危险的冲突</span>
+                    <span>{{item.content_summary}}</span>
                 </div>
             </div>
         </el-col>

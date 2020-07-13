@@ -1,11 +1,11 @@
 <template>
   <div class="loindex innerpadd">
-    <!-- <el-col :span="6">
+    <el-col :span="6" style="margin-top:7px;">
       <el-input size="mini" placeholder="请输入表单标题" v-model="findData" prefix-icon="el-icon-search">
         <el-button size="mini" slot="append" @click="handleSearch">搜索</el-button>
       </el-input>
     </el-col>
-    <el-button type="primary" size="mini" @click="handleInput">数据导入</el-button> -->
+    <!-- <el-button type="primary" size="mini" @click="handleInput">数据导入</el-button> -->
     <el-table
       :data="tableData"
       :height="tableHeight"
@@ -16,7 +16,7 @@
       <el-table-column label="序号" type="index" width="70px" align="center" />
       <el-table-column label="标题" prop="translated_title" show-overflow-tooltip align='left'>
           <template slot-scope="{ row }">
-              <span class="biaoti">{{ row.translated_title }}</span>
+              <span class="biaoti">{{ row.title }}</span>
               <br />
               <span class="zhaiyao">{{ row.contentSummary[0] }}</span>
           </template>
@@ -50,8 +50,8 @@
       background
       style="float:right"
       layout="prev, pager, next, sizes, total, jumper"
-      :page-sizes="[5, 10, 15, 20]"
-      :page-size="pagesize"
+      :page-sizes="[5, 10, 15, 20, 50, 100]"
+      :page-size="this.pagesize"
       :total="this.length"
       @current-change="handleCurrentChange"
       @size-change="handleSizeChange"
@@ -73,7 +73,7 @@ export default {
       findData: "",
       showEdit: [], // 显示编辑框
       showBtn: [],
-      pagesize: 10,
+      pagesize: 100,
       currpage: 1,
       value: "success",
       length: 10
@@ -120,7 +120,7 @@ export default {
       }).then(res => {
         this.length = res.data.count;
         res.data.articleList.forEach((item, index) => {
-          item.event = item.event.slice(0, 3)
+          // item.event = item.event.slice(0, 3)
         })
         this.tableData = [...res.data.articleList];
       })
@@ -134,12 +134,12 @@ export default {
       this.find();
     },
     handleSearch() {
-      this.$message({
-        showClose: true,
-        message: "暂未实现",
-        type: "success",
-        duration: 0
-      })
+      // this.$message({
+      //   showClose: true,
+      //   message: "暂未实现",
+      //   type: "success",
+      //   duration: 0
+      // })
       this.find();
     },
     handleInput() {

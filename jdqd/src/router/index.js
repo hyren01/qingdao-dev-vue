@@ -36,8 +36,14 @@ export default new Router({
                     path: '/event_extract', name: 'eventExtract', component: () => import('@/hrds/b/event_extract/index.vue'),
                     meta: [{ name: '首页' }, { name: '事件提取', url: '/event_extract' }]
                 },
-                { path: '/event_suanfa', name: 'suanfa', component: () => import('@/hrds/b/event_extract/suanfa.vue') },
-                { path: '/event_singlesuanfa', name: 'singlesuanfa', component: () => import('@/hrds/b/event_extract/singlesuanfa.vue') },
+                { 
+                    path: '/event_suanfa', name: 'suanfa', component: () => import('@/hrds/b/event_extract/suanfa.vue'), 
+                    meta: [{ name: '首页' }, { name: '事件提取', url: '/event_extract' }, { name: '详情'}]
+                },
+                { 
+                    path: '/event_singlesuanfa', name: 'singlesuanfa', component: () => import('@/hrds/b/event_extract/singlesuanfa.vue'),
+                    meta: [{ name: '首页' }, { name: '事件提取', url: '/event_extract' }, { name: '详情'}]
+                },
                 //----------------------------事件抽取end--------------------------------
                 // {
                 //     path: '/event_manage', name: 'eventManage', component: () => import('@/hrds/b/event_manage/index.vue'),
@@ -62,8 +68,14 @@ export default new Router({
                     path: '/train_model', name: 'trainModel', component: () => import('@/hrds/b/event_predict/model_train/index.vue'),
                     meta: [{ name: '首页' }, { name: '模型训练', url: '/train_model' }]
                 },
-                { path: '/create_model', name: 'createModel', component: () => import('@/hrds/b/event_predict/model_train/create.vue') },
-                { path: '/nestdetail', name: 'nestdetail', component: () => import('@/hrds/b/event_predict/model_train/detail.vue') },
+                { 
+                    path: '/create_model', name: 'createModel', component: () => import('@/hrds/b/event_predict/model_train/create.vue') ,
+                    meta: [{ name: '首页' }, { name: '模型训练', url: '/train_model' },{ name: '创建模型' }]
+                },
+                {
+                    path: '/nestdetail', name: 'nestdetail', component: () => import('@/hrds/b/event_predict/model_train/detail.vue') ,
+                    meta: [{ name: '首页' }, { name: '模型训练', url: '/train_model' },{ name: '模型训练详情' }]
+                },
                 //----------------------------模型训练end--------------------------------
 
                 //----------------------------事件预测--------------------------------

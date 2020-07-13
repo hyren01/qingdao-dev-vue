@@ -37,6 +37,7 @@
             <template slot-scope="{ row }">
                 <el-button size="mini" type="text" @click="handleEdit(row)" v-if="row.status == '2'">详情</el-button>
                 <el-button size="mini" type="text" style="color: red" @click="handleDelete(row)">删除</el-button>
+                <el-button size="mini" type="text" @click="handleReturn(row)">重跑</el-button>
             </template>
         </el-table-column>
     </el-table>
@@ -47,7 +48,8 @@
 <script>
 import {
     getModelTrainInfo,
-    deleteModelInfoById
+    deleteModelInfoById,
+    modelReturn
 } from "./model_train.js"
 
 export default {
@@ -98,14 +100,22 @@ export default {
         },
         //重跑
         handleReturn(data) {
-            console.log(data);
             this.$confirm("此操作将重跑模型, 是否继续?", "提示", {
                     confirmButtonText: "确定",
                     cancelButtonText: "取消",
                     type: "warning"
                 })
                 .then(() => {
-                    const id = data.model_id;
+                    modelReturn({
+                            modelId: data.model_id
+                        })
+                        .then(res => {
+                            this.$message({
+                                type: "success",
+                                message: "重跑成功!"
+                            });
+                            this.getData();
+                        })
                 })
                 .catch(() => {
                     this.$message({

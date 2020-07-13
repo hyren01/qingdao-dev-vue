@@ -2,7 +2,7 @@
 <div class="loindex innerpadd">
     <el-row class="elRows">
         <span></span>
-        <el-button type="primary" class="els" @click="createModel()" size="mini">
+        <el-button type="primary" class="els" @click="createModel()" size="mini" style="float:right">
             <i class="block_icon fa fa-plus-circle"></i>创建模型
         </el-button>
     </el-row>

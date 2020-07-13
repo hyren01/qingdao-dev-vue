@@ -48,7 +48,7 @@ export default new Router({
                 // },
                 {
                     path: '/event_graph', name: 'eventGraph', component: () => import('@/hrds/b/event_graph/index.vue'),
-                    meta: [{ name: '首页' }, { name: '事件图谱', url: '/event_graph' }]
+                    meta: [{ name: '首页' }, { name: '事件获取', url: '/event_graph' }]
                 },
                 { path: '/people_coview', name: 'peopleCoview', component: () => import('@/hrds/a/syspara/syspara.vue') },
                 //----------------------------模型管理start--------------------------------

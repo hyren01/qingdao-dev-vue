@@ -32,7 +32,7 @@
                             </span>
                         </template>
                         <template slot="header">
-                            <div class="elcolHeader" @click=" historyDetail(index)">
+                            <div class="elcolHeader" @click=" historyDetail(index,item)">
                                 {{ item.propertyShow}}
                             </div>
                         </template>
@@ -83,13 +83,7 @@
                     <el-col>
                         <h3>事件详情
                             <span style="font-size:16px;font-weight:500;color:red">按事件展现前10模型后3天发生的概率</span>
-                            <span style="float:right;margin-right:40px;font-size:16px">
-                                事件:
-                                <el-select v-model="listvalue" placeholder="请选择" size="mini" style="width:120px;" @change="selectevent">
-                                    <el-option v-for="item in options" :key="item.event_name" :label="item.event_name" :value="item.event_name">
-                                    </el-option>
-                                </el-select>
-                            </span>
+                            
                         </h3>
                     </el-col>
                 </el-row>
@@ -312,24 +306,27 @@ export default {
         },
         // 详情2查看历史记录
         handleEdit(val) {
+            console.log(val)
             this.$router.push({
                 name: "historyDetail",
                 query: {
                     taskId: this.$route.query.taskId,
                     detailId: val.detail_id,
-                    forecastDate: this.$route.query.forecastDate
+                    forecastDate: this.$route.query.forecastDate,
+                    modelName:val.modelName
                 }
             });
 
         },
         // 详情1查看历史记录
-        historyDetail(val) {
+        historyDetail(val,row) {
             this.$router.push({
                 name: "historyDetail",
                 query: {
                     taskId: this.$route.query.taskId,
                     detailId: this.modeltable[0]['detail_id' + val],
-                    forecastDate: this.$route.query.forecastDate
+                    forecastDate: this.$route.query.forecastDate,
+                    modelName: row.propertyShow
                 }
             });
 

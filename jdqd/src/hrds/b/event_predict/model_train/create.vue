@@ -19,8 +19,8 @@
                         <el-form-item label="事件类别">
                             <el-col style="margin-left:1%">
                                 <el-radio-group v-model="form.event_type">
-                                    <el-radio label="2">按大类生成</el-radio>
-                                    <el-radio label="1">按小类生成</el-radio>
+                                    <el-radio label="1">按大类生成</el-radio>
+                                    <el-radio label="2">按小类生成</el-radio>
                                 </el-radio-group>
                             </el-col>
                         </el-form-item>
@@ -141,26 +141,28 @@ export default {
             labelPosition: "right",
             rule: validator.default,
             form: {
-                event_type: "",
+                event_type: "1",
                 name: "",
                 delivery: false,
                 type: [],
                 model_id: "", //模型id
-                tables_name: "", //训练表名
+                tables_name: "data_xlshuju_1,data_xlshuju_2,data_xlshuju_3,data_xlshuju_4", //训练表名
                 model_name: "", //模型名称
-                dr_min: "", //降维最小维度
-                dr_max: "", //降维最大维度
-                delay_min_day: "", //滞后最小天数
-                delay_max_day: "", //滞后最大天数
-                neure_num: "", //神经元个数
-                train_batch_no: "", //网络数据个数
-                days: "", //预测天数
+                dr_min: "5", //降维最小维度
+                dr_max: "20", //降维最大维度
+                delay_min_day: "5", //滞后最小天数
+                delay_max_day: "25", //滞后最大天数
+                neure_num: "128", //神经元个数
+                train_batch_no: "64", //网络数据个数
+                days: "3", //预测天数
                 epoch: "", //训练次数
-                size: "", //步长
+                size: "3", //步长
                 traintime: "",
                 modeltime: "",
-                tran_start_date: "", //训练开始日期
-                tran_end_date: "" //训练结束日期
+                tran_start_date: "2018-09-06", //训练开始日期
+                tran_end_date: "2019-09-30", //训练结束日期
+                evaluation_start_date:"2019-10-01",
+                evaluation_end_date:"2020-03-15"
             }
         };
     },

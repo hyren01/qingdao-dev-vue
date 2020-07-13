@@ -1,7 +1,7 @@
 <template>
 <div>
     <el-row class="elRows">
-        <span>数据标注</span>
+        <!-- <span>数据标注</span> -->
         <el-button type="primary" class="els" @click="dialogFormVisibleAdd = true;" size="small">
             <i class="el-icon-circle-plus-outline"></i>新增标注
         </el-button>

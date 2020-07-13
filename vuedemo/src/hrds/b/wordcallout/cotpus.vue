@@ -2,9 +2,9 @@
 <div>
     <el-row class="elRows">
         <span>主题名称: {{theme}}</span>
-        <el-button type="primary" class="els" @click="dialogFormVisibleAdd" size="small">
+        <!-- <el-button type="primary" class="els" @click="dialogFormVisibleAdd" size="small">
             <i class="el-icon-circle-plus-outline"></i>&nbsp;新增语料标注
-        </el-button>
+        </el-button> -->
     </el-row>
     <div class="lines"></div>
 
@@ -23,7 +23,7 @@
                 </el-input>
             </template>
             <template slot-scope="scope">
-                <el-button size="small" type="text" @click="corpusdetails(scope.row)">语料详情</el-button>
+                <el-button size="small" type="text" @click="corpusdetails(scope.row)">新增语料标注</el-button>
             </template>
         </el-table-column>
     </el-table>

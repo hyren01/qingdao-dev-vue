@@ -122,7 +122,7 @@ export default {
                 neuron: "",
                 epoch: ""
             },
-            tableHeight: window.innerHeight - 180,
+            tableHeight: window.innerHeight - 100,
             screenHeight: window.innerHeight,
             tableData: [],
             pagesize: 10,
@@ -225,7 +225,7 @@ export default {
     watch: {
         screenHeight(val) {
             this.screenHeight = val;
-            this.tableHeight = this.screenHeight - 180;
+            this.tableHeight = this.screenHeight - 100;
         }
     }
 };

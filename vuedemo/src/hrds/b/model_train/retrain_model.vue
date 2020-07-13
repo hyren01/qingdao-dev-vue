@@ -70,22 +70,28 @@
                     <el-col></el-col>   
                 </el-row>
                 <el-row type="flex" justify="left">
-                    <el-col>
-                        <el-form-item label="是否数据增强" prop="is_increase">
-                            <el-switch v-model="form.is_increase"></el-switch>
-                        </el-form-item>
-                    </el-col>
-                    <el-col></el-col>   
-                </el-row>    
+            <el-col style="width:100%">
+              <el-form-item label="是否数据增强" prop="is_increase">
+                <el-switch v-model="form.checkList1"></el-switch>
+                <el-checkbox-group v-model="form.checkList" size="mini" v-if="form.checkList1" style="width:200%">
+                  <el-checkbox label="同义词插入和替换" border></el-checkbox>
+                  <el-checkbox label="词语交换和删除、中外文反译（20种语言）" border></el-checkbox>
+                  <el-checkbox label="缩句" border></el-checkbox>
+                </el-checkbox-group>
+              </el-form-item>
+            </el-col>
+            <el-col></el-col>
+          </el-row>  
                 <h4 class="handletitle">配置参数</h4>
                 <el-row type="flex" justify="left">
                     <el-col>
                         <el-form-item label="选择预训练模型">
                             <el-col style="width:200%;">
-                                <el-radio v-model="form.pre_model" style="width:24%" label="roberta" border>Roberta</el-radio>
-                                <el-radio v-model="form.pre_model" style="width:24%;margin-left:-3.6%" label="nerza" border>Nerza</el-radio>
-                                <el-radio v-model="form.pre_model" style="width:24%;margin-left:-3.6%" label="bert" border>Bert</el-radio>
-                                <el-radio v-model="form.pre_model" style="width:24%;margin-left:-3.6%" label="" border>不使用预训练模型</el-radio>
+                                <el-radio v-model="form.pre_model" style="width:14%" label="roberta" border>Roberta</el-radio>
+                                <el-radio v-model="form.pre_model" style="width:13%;margin-left:-3.8%" label="nerza" border>Nerza</el-radio>
+                                <el-radio v-model="form.pre_model" style="width:13%;margin-left:-3.8%" label="bert" border>Bert</el-radio>
+                                <el-radio v-model="form.pre_model" style="width:13%;margin-left:-3.8%" label="albert" border>Albert</el-radio>
+                                <el-radio v-model="form.pre_model" style="width:13%;margin-left:-3.8%" label="" border>无模型</el-radio>
                             </el-col>
                         </el-form-item>
                     </el-col>
@@ -165,21 +171,29 @@
                     <el-col></el-col>
                 </el-row>
                 <el-row type="flex" justify="left">
-                    <el-col>
-                        <el-form-item label="通知邮箱">
-                            <el-col>
-                                <el-input v-model="form.email" size="medium"></el-input>
-                            </el-col>
-                        </el-form-item>
-                    </el-col>
-                    <el-col>
-                        <el-form-item label="通知手机">
-                            <el-col>
-                                <el-input v-model="form.phone" size="medium"></el-input>
-                            </el-col>
-                        </el-form-item>
-                    </el-col>
-                </el-row>
+            <el-col>
+              <el-form-item label="是否通知" prop="is_increase">
+                <el-switch v-model="form.is_call"></el-switch>
+              </el-form-item>
+            </el-col>
+            <el-col></el-col>
+          </el-row>
+          <el-row type="flex" justify="left">
+            <el-col v-if="form.is_call">
+              <el-form-item label="通知邮箱">
+                <el-col>
+                  <el-input v-model="form.email" size="medium"></el-input>
+                </el-col>
+              </el-form-item>
+            </el-col>
+            <el-col v-if="form.is_call">
+              <el-form-item label="通知手机">
+                <el-col>
+                  <el-input v-model="form.phone" size="medium"></el-input>
+                </el-col>
+              </el-form-item>
+            </el-col>
+          </el-row>
             </el-form>
         </div>
         <div style="float:right;margin-bottom:1.5%">
@@ -252,7 +266,8 @@ export default {
                 log_batch_num: 500,
                 is_gpu: true,
                 gpu_id: "gpu1",
-                data_append_type: "替换"
+                data_append_type: "替换",
+                checkList: []
             },
             data: {}    //页面传的值
         };

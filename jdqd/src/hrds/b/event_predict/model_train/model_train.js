@@ -37,3 +37,10 @@ export function getModelDteailByEvent(data) {
         params: data
     })
 }
+
+export function modelReturn(data) {
+    return request({
+        url: '/A/modeltrain/modelReturn',
+        params: data
+    })
+}

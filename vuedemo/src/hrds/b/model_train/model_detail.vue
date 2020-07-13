@@ -16,7 +16,7 @@
                     <el-col>
                         <el-form-item label="模型名称" prop="tables_name">
                             <el-col>
-                                <el-input v-model="data.model_name" size="medium"></el-input>
+                                <el-input v-model="data.model_name" size="medium" disabled></el-input>
                             </el-col>
                         </el-form-item>
                     </el-col>
@@ -26,7 +26,7 @@
                     <el-col>
                         <el-form-item label="任务类型">
                             <el-col style="width:145%;">
-                                <el-radio-group v-model="data.model_name">
+                                <el-radio-group v-model="data.model_name" disabled>
                                     <el-radio label="事件抽取">事件抽取</el-radio>
                                     <el-radio label="相似度匹配">相似度匹配</el-radio>
                                     <el-radio label="关系存在性判定">关系存在性判定</el-radio>
@@ -41,7 +41,7 @@
                     <el-col>
                         <el-form-item label="任务备注" prop="remark" >
                             <el-col style="width:129%;">
-                                <el-input type="textarea" v-model="data.remark"></el-input>
+                                <el-input type="textarea" v-model="data.remark" disabled></el-input>
                             </el-col>
                         </el-form-item>
                     </el-col>
@@ -52,10 +52,11 @@
                     <el-col>
                         <el-form-item label="选择预训练模型">
                             <el-col style="width:200%;">
-                                <el-radio v-model="form.pre_model" style="width:24%" label="roberta" border>Roberta</el-radio>
-                                <el-radio v-model="form.pre_model" style="width:24%;margin-left:-3.6%" label="nerza" border>Nerza</el-radio>
-                                <el-radio v-model="form.pre_model" style="width:24%;margin-left:-3.6%" label="bert" border>Bert</el-radio>
-                                <el-radio v-model="form.pre_model" style="width:24%;margin-left:-3.6%" label="" border>不使用预训练模型</el-radio>
+                                <el-radio v-model="form.pre_model" style="width:14%" label="roberta" border>Roberta</el-radio>
+                                <el-radio v-model="form.pre_model" style="width:13%;margin-left:-3.8%" label="nerza" border>Nerza</el-radio>
+                                <el-radio v-model="form.pre_model" style="width:13%;margin-left:-3.8%" label="bert" border>Bert</el-radio>
+                                <el-radio v-model="form.pre_model" style="width:13%;margin-left:-3.8%" label="albert" border>Albert</el-radio>
+                                <el-radio v-model="form.pre_model" style="width:13%;margin-left:-3.8%" label="" border>无模型</el-radio>
                             </el-col>
                         </el-form-item>
                     </el-col>
@@ -65,16 +66,16 @@
                     <el-col>
                         <el-form-item label="学习率">
                             <el-col>
-                                <el-input style="width:45%" v-model="form.min_study" size="medium"></el-input>
+                                <el-input style="width:45%" v-model="form.min_study" size="medium" disabled></el-input>
                                 -
-                                <el-input style="width:45%" v-model="form.max_study" size="medium"></el-input>
+                                <el-input style="width:45%" v-model="form.max_study" size="medium" disabled></el-input>
                             </el-col>
                         </el-form-item>
                     </el-col>
                     <el-col>
                         <el-form-item label="批量大小">
                             <el-col style="width:95%">
-                                <el-input v-model="form.batch" size="medium"></el-input>
+                                <el-input v-model="form.batch" size="medium" disabled></el-input>
                             </el-col>
                         </el-form-item>
                     </el-col>
@@ -83,14 +84,14 @@
                     <el-col>
                         <el-form-item label="字符串最大长度">
                             <el-col style="width:95%">
-                                <el-input v-model="form.max_str_length" size="medium"></el-input>
+                                <el-input v-model="form.max_str_length" size="medium" disabled></el-input>
                             </el-col>
                         </el-form-item>
                     </el-col>
                     <el-col>
                         <el-form-item label="循环次数">
                             <el-col style="width:95%">
-                                <el-input v-model="form.epoch" size="medium"></el-input>
+                                <el-input v-model="form.epoch" size="medium" disabled></el-input>
                             </el-col>
                         </el-form-item>
                     </el-col>
@@ -99,14 +100,14 @@
                     <el-col>
                         <el-form-item label="批量存储间隔">
                             <el-col style="width:95%">
-                                <el-input v-model="form.save_batch_num" size="medium"></el-input>
+                                <el-input v-model="form.save_batch_num" size="medium" disabled></el-input>
                             </el-col>
                         </el-form-item>
                     </el-col>
                     <el-col>
                         <el-form-item label="批量日志间隔">
                             <el-col style="width:95%">
-                                <el-input v-model="form.log_batch_num" size="medium"></el-input>
+                                <el-input v-model="form.log_batch_num" size="medium" disabled></el-input>
                             </el-col>
                         </el-form-item>
                     </el-col>
@@ -115,7 +116,7 @@
                     <el-col>
                         <el-form-item label="网格单元">
                             <el-col style="width:95%">
-                                <el-input v-model="form.epoch" size="medium"></el-input>
+                                <el-input v-model="form.epoch" size="medium" disabled   ></el-input>
                             </el-col>
                         </el-form-item>
                     </el-col>
@@ -138,7 +139,7 @@
         </div>
         <div style="float:right;margin-bottom:1.5%">
             <el-button @click="cancel" size="small">
-                取消
+                返回
             </el-button>
         </div>
     </div>

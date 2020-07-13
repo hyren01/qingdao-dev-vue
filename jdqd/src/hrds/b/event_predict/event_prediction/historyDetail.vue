@@ -8,12 +8,15 @@
     <div class="lines"></div>
     <div class="left">
         <h4 class="handletitle">
-            历史详情
+            历史详情<br/>
             <span style="float:right;margin-bottom:10px;">
                 时间筛选:
                 <el-date-picker v-model="value" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期" @change="selectDate"></el-date-picker>
             </span>
         </h4>
+        <span>
+                模型名称:{{this.modelName}}
+        </span>
         <el-table :data="modeltable" :cell-class-name="tableRowClass" border>
             <el-table-column label="时间" prop="event_name"></el-table-column>
             <el-table-column v-for="(item, index) in modeltable[1].data" :key="item.forecast_date">
@@ -40,11 +43,13 @@ export default {
             value: "",
             dataList: {},
             arry: [],
-            widths: ""
+            widths: "",
+            modelName:""
         };
     },
     computed: {},
     mounted() {
+        this.modelName=this.$route.query.modelName
         this.getHistoryInfo(
             this.$route.query.forecastDate,
             this.getAfterDate(this.$route.query.forecastDate)
@@ -91,7 +96,8 @@ export default {
             column,
             columnIndex
         }) {
-            if (rowIndex == 0 && columnIndex > 0) {
+            if (rowIndex == 0) {
+                console.log(1)
                 return "background";
             }
         },
@@ -212,10 +218,5 @@ export default {
     height: 40px;
     line-height: 40px;
     width: 100%;
-}
-
-.el-row span {
-    color: #2196f3;
-    font-size: 18px;
 }
 </style>

@@ -226,7 +226,8 @@ export default {
     initEchart() {
       functionAll
         .getEventRel({
-          event_id: this.event_id
+          event_id: this.event_id,
+          event_sentence: this.event_sentence
         })
         .then(res => {
           console.log(res);

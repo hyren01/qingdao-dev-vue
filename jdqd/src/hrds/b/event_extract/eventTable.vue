@@ -1,5 +1,12 @@
 <template>
   <div class="loindex">
+    <el-col :span="7"  style=" margin-top:10px;margin-bottom:10px;">
+        <el-date-picker v-model="findData" type="date" placeholder="选择日期" size="mini" value-format="yyyy-MM-dd">
+        </el-date-picker>
+        <el-button type="primary" @click="handleFind" size="mini" style="margin-left:6px;">
+            搜索
+        </el-button>
+    </el-col>
     <el-dialog title="文章列表" :visible.sync="dialogVisible" width="60%">
       <el-table
         :data="tableData2"
@@ -7,7 +14,7 @@
         size="medium" border  
         :height="tableHeight"
       >
-        <el-table-column prop="translated_title" label="文章标题" align="center">
+        <el-table-column prop="translated_title" label="文章标题" align="left">
         </el-table-column>
         <el-table-column prop="create_date" label="创建日期" align="center" width="120">
         </el-table-column>
@@ -33,12 +40,12 @@
       size="medium" border  
     >
       <el-table-column label="序号" type="index" width="70px" align="center" />
-      <el-table-column label="相关事件" prop="title" show-overflow-tooltip align='center'>
+      <el-table-column label="相关事件" prop="title" show-overflow-tooltip align='left' >
         <template slot-scope="{ row }">
           <span class="biaoti">{{ row.title }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="事件主语" prop="event_zy" show-overflow-tooltip align='center'>
+      <!-- <el-table-column label="事件主语" prop="event_zy" show-overflow-tooltip align='center'>
         <template slot-scope="{ row }">
           <span>{{ row.event_zy }}</span>
         </template>
@@ -52,12 +59,12 @@
         <template slot-scope="{ row }">
           <span>{{ row.event_by }}</span>
         </template>
-      </el-table-column>
-      <el-table-column label="事件时间" prop="create_date" width="100%" align='center'>
+      </el-table-column> -->
+      <!-- <el-table-column label="事件时间" prop="create_date" width="100%" align='center'>
         <template slot-scope="{ row }">
           <span>{{ row.create_date }}</span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column
         label="符合文章数"
         prop="num"
@@ -65,14 +72,25 @@
         align="center"
       >
         <template slot-scope="{ row }">
-          <span>{{ row.num }}</span>
+           <el-link style="color:#409EFF;" @click="handleEdit2(row,1)"><span>{{ row.num }}</span></el-link>
         </template>
       </el-table-column>
-      <el-table-column label="操作" align='center' width="80">
+       <el-table-column label="近7天文章数" prop="" align="center" width="100%">
+        <template slot-scope="{ row }">
+          <span v-if="row.numDay7!='0'"><el-link style="color:#409EFF;" @click="handleEdit2(row,0)">{{ row.numDay7 }}</el-link></span>
+          <span v-else>{{ row.numDay7 }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="最新文章日期" prop="" align="center" width="160%">
+        <template slot-scope="{ row }">
+          <span>{{ row.numDay7New }}</span>
+        </template>
+      </el-table-column>
+      <!-- <el-table-column label="操作" align='center' width="80">
           <template slot-scope="{ row }">
               <el-button size="mini" type="text" @click="handleEdit2(row)">详情</el-button>
           </template>
-      </el-table-column>
+      </el-table-column> -->
     </el-table>
     <!-- 分页 -->
     <el-pagination
@@ -131,10 +149,10 @@ export default {
   },
   computed: {},
   methods: {
-    handleEdit2(item) {
+    handleEdit2(item,flag) {
       this.title = item.title;
       this.id = item.event_id;
-      getEventRelateArticleMess({solr_event_id: item.event_id})
+      getEventRelateArticleMess({solr_event_id: item.event_id,flag:flag})
       .then(res => {
         this.dialogVisible = true;
         this.tableData2 = [...res.data];
