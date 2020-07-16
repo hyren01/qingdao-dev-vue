@@ -120,7 +120,7 @@ export default {
       }).then(res => {
         this.length = res.data.count;
         res.data.articleList.forEach((item, index) => {
-          // item.event = item.event.slice(0, 3)
+          item.event = item.event.slice(0, 3)
         })
         this.tableData = [...res.data.articleList];
       })

@@ -70,13 +70,20 @@ export default new Router({
                 },
                 { 
                     path: '/create_model', name: 'createModel', component: () => import('@/hrds/b/event_predict/model_train/create.vue') ,
-                    meta: [{ name: '首页' }, { name: '模型训练', url: '/train_model' },{ name: '创建模型' }]
+                    meta: [{ name: '首页' }, { name: '模型训练', url: '/create_model' },{ name: '创建模型' }]
                 },
                 {
                     path: '/nestdetail', name: 'nestdetail', component: () => import('@/hrds/b/event_predict/model_train/detail.vue') ,
-                    meta: [{ name: '首页' }, { name: '模型训练', url: '/train_model' },{ name: '模型训练详情' }]
+                    meta: [{ name: '首页' }, { name: '模型训练', url: '/nestdetail' },{ name: '模型训练详情' }]
                 },
                 //----------------------------模型训练end--------------------------------
+                {
+                    path: '/data_manage', name: 'dataManage', component: () => import('@/hrds/b/data_manage/index.vue'),
+                    meta: [{ name: '首页' }, { name: '数据管理', url: '/data_manage' }]
+                },
+                //----------------------------数据管理start------------------------------
+
+                //----------------------------数据管理end--------------------------------
 
                 //----------------------------事件预测--------------------------------
                 {

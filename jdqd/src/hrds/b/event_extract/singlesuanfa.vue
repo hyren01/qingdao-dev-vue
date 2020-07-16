@@ -131,7 +131,7 @@ export default {
       this.keywordsdetailwy.map((item, index) => {
         let keyWords2 = item;
         resultsList.map((item, index) => {
-          if (keyWords2 && keyWords2 > 0) {
+          if (keyWords2 && keyWords2.length > 0) {
             // 匹配关键字正则
             let replaceReg = new RegExp(keyWords2, "g");
             // 高亮替换v-html值
@@ -148,6 +148,7 @@ export default {
         this.keyWords = item;
         resultsList.map((item, index) => {
           if (this.keyWords && this.keyWords.length > 0) {
+            console.log(this.keyWords)
             // 匹配关键字正则
             let replaceReg = new RegExp(this.keyWords, "g");
             // 高亮替换v-html值
@@ -274,6 +275,6 @@ export default {
   color: blue;
 }
 .search-text2 {
-  color: slateblue;
+  color: rgb(37, 146, 100);
 }
 </style>

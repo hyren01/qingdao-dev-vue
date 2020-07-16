@@ -97,7 +97,7 @@
       background
       style="float:right"
       layout="prev, pager, next, sizes, total, jumper"
-      :page-sizes="[5, 10, 15, 20]"
+      :page-sizes="[50,100]"
       :page-size="pagesize"
       :total="this.length"
       @current-change="handleCurrentChange"
@@ -123,7 +123,7 @@ export default {
       showEdit: [], // 显示编辑框
       showBtn: [],
       tableData2: [],
-      pagesize: 10,
+      pagesize: 100,
       currpage: 1,
       value: "success",
       // type: this.$store.state.table.type,
